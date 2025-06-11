@@ -3,10 +3,10 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: cleanup
-specs:
+spec:
   description: This task will clean up a workspace by deleting all the files.
   workspaces:
-    name: remove
+    - name: remove
   steps:
     - name: remove
       image: alpine:3
@@ -38,10 +38,10 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: nose
-specs:
+spec:
   description: This task will run nose tests.
   workspaces:
-    name: source
+    - name: source
   params:
     - name: args
       description: Arguments to pass to nose
